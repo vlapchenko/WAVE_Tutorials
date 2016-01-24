@@ -1,0 +1,32 @@
+﻿ #<laconf>
+    compiler
+    {
+    using { ns="NFX" }
+    using { ns="NFX.Wave" }
+    using { ns="NFX.Wave.Templatization" }
+    base-class-name="NFX.Wave.Templatization.WaveTemplate"
+    namespace="Tutorial01.Pages"
+    }
+#</laconf>
+
+#[render]
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>WAVE Tutorial 01</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        strong {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello, world!</h1>
+    <p>Server's datetime is <strong>?[DateTime.Now]</strong></p>
+</body>
+</html>
