@@ -9,10 +9,10 @@ using Tutorial01.Pages;
 
 namespace Tutorial01.Controllers
 {
-    public class Tutor01 : Controller
+    public class MyController : Controller
     {
         [Action]
-        public object Index()
+        public object GetTime()
         {
             return new Index();
         }

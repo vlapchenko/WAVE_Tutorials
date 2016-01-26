@@ -67,15 +67,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\Tutor01.cs" />
-    <Compile Include="Pages\Index.html.auto.cs">
-      <DependentUpon>Index.html</DependentUpon>
-    </Compile>
+    <Compile Include="Controllers\MyController.cs" />
+    <Compile Include="Pages\Index.html.auto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Tutorial01.laconf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

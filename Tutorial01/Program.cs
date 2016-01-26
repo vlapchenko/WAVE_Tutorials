@@ -24,7 +24,6 @@ namespace Tutorial01
             {
                 Console.WriteLine("Critical error:");
                 Console.WriteLine(ex);
-                Console.ReadLine();
                 Environment.ExitCode = -1;
             }
         }
