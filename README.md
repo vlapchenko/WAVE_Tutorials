@@ -1,2 +1,2 @@
-# WAVE_Tutorials
+# WAVE Tutorials
 A few tutorials of NFX.WAVE using.
