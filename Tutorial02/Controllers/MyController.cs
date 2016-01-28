@@ -18,17 +18,20 @@ namespace Tutorial02.Controllers
         [Action]
         public Object Index()
         {
-            Person pers = new Person { FirstName = "John", LastName = "Smith", Age = 20, IsCertified=true };
-            Exception validationError = null;
+            Person pers = new Person { FirstName = "John", LastName="Smith", Age = 20, IsCertified=true };
+
+            Exception validationError = null; // pers.Validate();
+
             RecordModelGenerator gen = new RecordModelGenerator();
             string personDef = gen.RowToRecordInitJSON(pers, validationError).ToJSON();
+
             return new Index { PersonDef = personDef };
         }
 
         [Action(name: "person", order: 1, matchScript: "match{ methods='POST' }")]
         public Object SavePerson(Person pers)
         {
-            Console.WriteLine(pers.ToString());
+            Console.WriteLine(pers.ToJSON(JSONWritingOptions.PrettyPrintRowsAsMap));
             return new { OK = true };
         }
     }

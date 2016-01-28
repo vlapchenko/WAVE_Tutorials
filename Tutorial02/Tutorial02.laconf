@@ -21,14 +21,6 @@
 
                 handler
                 {
-                    order=0
-                    type="NFX.Wave.Handlers.FileDownloadHandler, NFX.Wave"
-                    root-path=$"Resources/"
-                    match { path="/res/{*filePath}" }
-                }
-
-                handler
-                {
                     order=100
                     name="Stock Content Embedded Site"
                     type="NFX.Wave.Handlers.StockContentSiteHandler, NFX.Wave"

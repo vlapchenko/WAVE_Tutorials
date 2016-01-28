@@ -1,5 +1,4 @@
 ﻿using NFX.DataAccess.CRUD;
-using NFX.Serialization.JSON;
 
 namespace Tutorial02.Models
 {
@@ -16,10 +15,5 @@ namespace Tutorial02.Models
 
         [Field(required: false, dflt: false, description: "Certified C# developer")]
         public bool IsCertified { get; set; }
-
-        public override string ToString()
-        {
-            return this.ToJSON(JSONWritingOptions.PrettyPrintRowsAsMap);
-        }
     }
 }
