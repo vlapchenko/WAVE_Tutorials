@@ -1,0 +1,17 @@
+﻿schema
+{
+  TID="TVarchar(32)"
+
+  table=person
+  {
+    comment="Persons"
+
+    column=ID { type=$(/$TID) required=true comment="Person's unique identifier" }
+    column=FirstName { type=TVARCHAR(25) required=true comment="Person's first name" }
+    column=LastName { type=THumanName required=true comment="Person's last name" }
+    column=Age { type=THumanAge required=false comment="Person's age" }
+    column=IsCertified { type=TBool required=false comment="Certified C# developer" }
+
+    primary-key { column=ID{} }
+  }
+}

@@ -1,0 +1,90 @@
+﻿#<laconf>
+  compiler
+  {
+  using { ns="NFX" }
+  using { ns="NFX.Wave" }
+  using { ns="NFX.Wave.Templatization" }
+  using { ns="Tutorial03.Models" }
+  base-class-name="NFX.Wave.Templatization.WaveTemplate"
+  namespace="Tutorial03.Pages"
+  }
+#</laconf>
+
+#[class]
+  public IEnumerable<Person> People { get; set; }
+
+  #[render]
+  <!DOCTYPE html>
+
+  <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>WAVE Tutorial 03</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      td {
+        border: 1px solid #000;
+        padding: 5px;
+      }
+      thead {
+        font-weight: 600;
+        background-color: #CCC;
+      }
+      .container {
+        margin-left: 20%;
+        margin-top: 50px;
+      }
+    </style>
+    <script src="/stock/site/script/jquery-2.1.4.min.js"></script>
+    <script src="/stock/site/script/wv.js"></script>
+    <script src="/stock/site/script/wv.gui.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <a href="/MyController/Edit">Add Person</a>
+      <br />
+      <br />
+      <table>
+        <thead>
+          <tr>
+            <td>FirstName</td>
+            <td>LastName</td>
+            <td>Age</td>
+            <td>IsCertified</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </thead>
+        @[foreach (var person in People){]
+        <tr id="?[person.ID]">
+          <td>?[person.FirstName]</td>
+          <td>?[person.LastName]</td>
+          <td>?[person.Age]</td>
+          @[if (person.IsCertified) {]
+          <td style="color: green;">Yes</td>
+          @[} else {]
+          <td style="color: red;">No</td>
+          @[}]
+          <td><a href="/MyController/Edit?personId=?[person.ID]" style="text-decoration: none;">Edit</a></td>
+          <td><a onclick="deletePerson('?[person.ID]')" style="cursor: pointer; color: blue;">Delete</a></td>
+        </tr>
+        @[}]
+      </table>
+    </div>
+    <script>
+      function deletePerson(pID) {
+        var request = new XMLHttpRequest();
+        request.open("POST", "/MyController/Delete?personId=" + pID);
+        request.onreadystatechange = function () {
+          if (request.readyState == 4 && request.status == 200) {
+            var row = $('#' + pID);
+            row.remove();           
+          }
+        }
+        request.send();
+      }
+    </script>
+  </body>
+</html>

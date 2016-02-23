@@ -1,5 +1,11 @@
 ﻿application
 {
+  data-store
+  {
+    type="NFX.DataAccess.MySQL.MySQLDataStore, NFX.MySQL"
+    connect-string="Server=localhost;Database=tutorial_db;Uid=tutorial_user;Pwd=password"
+    script-assembly="Tutorial03"
+  }
   wave
   {
     server
@@ -31,8 +37,8 @@
         {
           order = 200
           type="NFX.Wave.Handlers.MVCHandler, NFX.Wave"            
-          type-location { assembly="Tutorial02.exe" ns { name="Tutorial02.Controllers" } }                                            
-          match { path="/{type=MyController}/{mvc-action=Index}" }
+          type-location { assembly="Tutorial03.exe" ns { name="Tutorial03.Controllers" } }
+          match { path="/{type=MyController}/{mvc-action=Index}" var{query-name="*"} }
         }
       }
     }
